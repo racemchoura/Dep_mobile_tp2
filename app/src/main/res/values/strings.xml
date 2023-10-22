@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Racem_choura_Mesure_glycémie</string>
+    <string name="title" > Mesure de niveau de glycémie</string>
+    <string name="ageMsg">Votre age:</string>
+    <string name="jeunez">Est-ce que vous jeuner!</string>
+    <string name="consulter">consulter</string>
+</resources>

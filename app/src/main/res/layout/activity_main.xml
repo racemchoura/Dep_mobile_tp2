@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_background"
+    android:padding="20dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="@string/title"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/tvAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/ageMsg"
+        android:textSize="25sp" />
+
+    <SeekBar
+        android:id="@+id/sbAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:max="120" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/jeunez"
+        android:textSize="25sp" />
+
+    <RadioGroup
+        android:id="@+id/rgouinon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+    <RadioButton
+        android:id="@+id/rbtoui"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:layout_weight="1"
+        android:checked="true"
+        android:text="oui"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
+    <RadioButton
+        android:id="@+id/rbtnon"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_weight="1"
+        android:checked="false"
+        android:text="non"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
+    </RadioGroup>
+    <EditText
+        android:id="@+id/edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="valeur  mésurée (en mmol/l) "
+        android:textSize="25sp"
+        android:hint="valeur mésurée (en mmol/l)"
+        android:inputType="numberDecimal"
+        />
+    <Button
+        android:id="@+id/btnconsulter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/consulter"
+        android:onClick="calculer"
+        android:textSize="20dp"
+        android:background="@color/blue"/>
+
+
+</LinearLayout>
