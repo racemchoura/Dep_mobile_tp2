@@ -1,5 +1,8 @@
 package com.example.racem_choura_mesure_glycmie.view;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,14 +17,15 @@ import com.example.racem_choura_mesure_glycmie.R;
 import com.example.racem_choura_mesure_glycmie.controller.Controller;
 
 public class MainActivity extends AppCompatActivity {
+    private  final int REQUEST_CODE=1;
     private EditText etValeur ;
     private Button btnConsulter;
     private SeekBar sbAge;
     private RadioButton rbIsFasting ,rbIsNotFasting;
-    private TextView tvAge,tvres;
+    private TextView tvAge; //tvres;
     private RadioGroup group;
 
-    private Controller controller = new Controller();
+    private Controller controller = Controller.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,17 +74,25 @@ public class MainActivity extends AppCompatActivity {
                     valeurMesure = Float.valueOf(etValeur.getText().toString());
                     boolean IsFasting = rbIsFasting.isChecked();
                     //useraction:view to controller
-                    controller.create_patient(age,valeurMesure,IsFasting);
+                    controller.create_patient(age, valeurMesure, IsFasting);
                     //update cntroller to view
-                    tvres.setText(controller.getResult());
+                    //tvres.setText(controller.getResult());
+                    Intent intent = new Intent(MainActivity.this, ConsulteActivity.class);
+                    intent.putExtra("reponse",controller.getResult() );
+                    startActivityForResult(intent,REQUEST_CODE);
                 }
             }
         });
 
     }
 
-
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==REQUEST_CODE)
+            if(resultCode==RESULT_CANCELED)
+                Toast.makeText(MainActivity.this,"Erreur",Toast.LENGTH_SHORT).show();
+    }
 
     public void init()
     {
@@ -90,9 +102,12 @@ public class MainActivity extends AppCompatActivity {
         rbIsFasting =(RadioButton) findViewById(R.id.rbtoui);
         rbIsNotFasting =(RadioButton) findViewById(R.id.rbtnon);
         tvAge =(TextView) findViewById(R.id.tvAge);
-        tvres = (TextView) findViewById(R.id.btnconsulter);
+        //tvres = (TextView) findViewById(R.id.btnconsulter);
+        //Intent intent=new Intent(MainActivity.this,ConsulteActivity.class);
+       // intent.putExtra("réponse",controller.getResult());
 
     }
 
 
 }
+

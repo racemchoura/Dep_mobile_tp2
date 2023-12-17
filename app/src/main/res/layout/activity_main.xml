@@ -7,7 +7,7 @@
     android:background="@drawable/app_background"
     android:padding="20dp"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -71,7 +71,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="valeur  mésurée (en mmol/l) "
         android:textSize="25sp"
         android:hint="valeur mésurée (en mmol/l)"
         android:inputType="numberDecimal"

@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.example.racem_choura_mesure_glycmie"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.racem_choura_mesure_glycmie"

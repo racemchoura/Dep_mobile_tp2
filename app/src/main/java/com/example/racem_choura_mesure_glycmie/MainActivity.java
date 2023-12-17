@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         init();
 
         //Listener seekbar
+
         Sk.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {

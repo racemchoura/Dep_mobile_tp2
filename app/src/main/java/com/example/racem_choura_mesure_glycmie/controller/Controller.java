@@ -1,11 +1,17 @@
 package com.example.racem_choura_mesure_glycmie.controller;
 
 import com.example.racem_choura_mesure_glycmie.Model.Patient;
-public class Controller {
+public final class Controller {
+    private static Controller instance = null;
     private static Patient patient;
-    public Controller()
+    private  Controller()
     {
         super();
+    }
+    public static  final Controller getInstance(){
+        if(Controller.instance==null)
+            Controller.instance = new Controller();
+        return Controller.instance;
     }
     public void create_patient(int age ,float valeur , boolean isFasting){
         patient=new Patient(age,valeur,isFasting) ;
